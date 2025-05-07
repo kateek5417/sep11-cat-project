@@ -8,7 +8,7 @@
 
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" />
         <link href="style.css" rel="stylesheet" type="text/css" />
-        <script src="https://cdn.jsdelivr.net/npm/p5@1.6.0/lib/p5.js"></script>
+        <script src="https://q5js.org/q5.js"></script>
         <script src="https://p5play.org/v3/planck.min.js"></script>
         <script src="https://p5play.org/v3/p5play.js"></script>
 
@@ -21,6 +21,8 @@
     </head>
     <body>
         <!-- HTML -->
+        <!-- <button class="btn btn-primary btn-lg" id = "game">Game</button> -->
+        <!-- <button onclick="myFunction()">Replace document</button> -->
 
 
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
@@ -28,6 +30,9 @@
         <script>
             // JS
             // console.log(localStorage.getItem("unlocked").split(","))
+            function myFunction() {
+                window.open("https://qiling9760.github.io/sep11-freedom-project-collect-cat-food/index.html")
+            }
 
             var rng
             var rarity
@@ -36,8 +41,8 @@
             var superSuperRare = ["rich.png", "human.png", "buff.png"];
             var fishNum = 100
 
-            let canX = 750
-            let canY = 750
+            let canX = 1200
+            let canY = 1200
 
             let MuellerSUnimg
 
@@ -78,19 +83,18 @@
             function setup() {
                 createCanvas(windowWidth, windowHeight);
 
+                //resize() changes img dimension
                 MuellerSUnimg.resize(canX, canY)
-                flowerimg.resize(windowWidth, windowHeight)
+                flowerimg.resize(windowWidth *2, windowHeight*2)
                 cloudsImg.resize(canX, canY)
 
                 box = new Group();
                 cat = new Group();
 
-
                 cat.diameter = 50;
 
                 var pull = createButton(`pull`) //make pull button
                 pull.position(windowWidth-200, 100);
-
                 pull.mousePressed(genRarity); //call `pull` function
 
                 // generates random box rarity R, SR, SRR
@@ -114,8 +118,6 @@
                             rarity = "ssr";
                         }
                         new box.Sprite(windowWidth/2, windowHeight/2);
-
-
                         // console.log(rarity)
                     }
                 }
@@ -149,7 +151,7 @@
                 cloudsX-= 3;
                 if(cloudsX < -width) cloudsX = 0;
 
-                //open box
+                    //open box
                 if (box.mouse.pressed()){
                     box.removeAll();
 
@@ -169,31 +171,17 @@
                     }
 
                     new cat.Sprite();
-
                     if(unlockedCats.includes(catType) == false){//stores unlocked cat into array
                         unlockedCats.push(catType)
                         localStorage.setItem("unlocked", unlockedCats);
                     }
                     // console.log(unlockedCats)
+                }
 
-
-            }
                 textAlign(CENTER)
-                text("Food: " + fishNum, width-200, 60)
+                text("Food: " + fishNum, width-200, 180)
                 text("Press the 'pull' button to get a random cat", width/2, 60)
-
-
-
-                // text(localStorage.getItem("unlocked"), 300, 800)
             }
-
-             // Set Item
-            //  localStorage.setItem("unlocked", unlockedCats);
-                // Retrieve
-
-
-
-
         </script>
     </body>
 </html>
