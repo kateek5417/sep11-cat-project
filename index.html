@@ -21,7 +21,7 @@
             }
         </style>
 
-        <title>Title</title>
+        <title>Cat Collecter</title>
     </head>
     <body>
         <!-- HTML -->
@@ -42,7 +42,7 @@
             var rarity
             var rare = ["homeless.png", "comic.png", "eepycat.png", "loafcat.png", "stretch.png", "notgojo.png", "sad.png"];
             var superRare = ["fish-legs.png", "cat-tail.png", "long.png", "flat.png", "cat-bird.png"];
-            var superSuperRare = ["rich.png", "human.png", "buff.png"];
+            var superSuperRare = ["rich.png", "mooler.png", "buff.png"];
             var fishNum = 100
 
             let canX = 1200
@@ -65,9 +65,7 @@
 
                 // soundFormats("mp3")
                 frenchsound = loadSound("PeriTune_Alleyway-chosic.com_.mp3")
-
             }
-
 
             function noLocalStorage(){
                 if(localStorage.getItem("unlocked")==null){
@@ -81,7 +79,6 @@
                 var unlockedCats = [];
             } else {
                 var unlockedCats = []
-
             }
 
             function setup() {
@@ -104,11 +101,10 @@
                 // pull.mousePressed(genRarity); //call `pull` function
                 pull.elt.addEventListener("click",genRarity)
                 // generates random box rarity R, SR, SRR
-
             }
 
             function genRarity(){ //`pull` function
-                    if(fishNum >= 1){
+                if(fishNum >= 1){
                         box.removeAll();
                         cat.removeAll();
                         fishNum -= 10;
